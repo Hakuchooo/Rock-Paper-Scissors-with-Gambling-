@@ -1,11 +1,11 @@
 import random
 
 
-def check_balance():
+def check_balance(balance):
     print(f'Balance: {balance}')
 
 
-def betting_balance():
+def betting_balance(bet_balance):
     print(f'Bet Balance: {bet_balance}')
 
 
@@ -19,7 +19,7 @@ def deposit():
         print(f'PHP: {deposit_amount} has been added to your account')
         return deposit_amount
     
-def place_bet():
+def place_bet(balance):
     print('GAMBLING TIME BABY!!!')
 
     print('How Much Do You want to bet?')
@@ -35,9 +35,7 @@ def place_bet():
         print(f'Bet placed PHP: {bet_amount}')
         return bet_amount
 
-def gamble():
-        global bet_balance
-        global balance
+def gamble(bet_balance):
         win_con = {
         'Rock': 'Scissors',
         'Paper': 'Rock',
@@ -67,8 +65,9 @@ def gamble():
                 bet_balance *= 0
         else:
             print('Insufficient betting amount')
+        return bet_balance
 
-def cash_out():
+def cash_out(bet_balance):
     print(f'Available Balance to cash out: {bet_balance}')
     cashout_Amount = float(input('PHP: '))
     if cashout_Amount > bet_balance:
